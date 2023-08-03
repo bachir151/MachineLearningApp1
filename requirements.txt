@@ -1,0 +1,14 @@
+numpy == 1.21.6
+pandas
+lxml
+gunicorn
+bs4
+nltk
+spacy
+joblib
+scikit-learn==0.24.2
+scipy
+flask
+gensim
+tensorflow
+tensorflow_hub
