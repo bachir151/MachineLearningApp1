@@ -24,7 +24,7 @@ import gensim.corpora as corpora
 import tensorflow as tf
 import tensorflow_hub as hub
 
-os.environ["TFHUB_CACHE_DIR"] = "/tmp/tfhub_cache"  # Set a temporary cache directory
+#os.environ["TFHUB_CACHE_DIR"] = "/tmp/tfhub_cache"  # Set a temporary cache directory
 
 global nlp
 
