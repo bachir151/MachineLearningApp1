@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+  <style>
+
+    /* Add new background colors with increased width */
+/*body {
+  background-image: linear-gradient(to bottom, #a3b18a 50%, #dad7cd 50%);
+  background-size: 100% 100%;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}*/
+
+body{
+background-color: #ffffff;
+background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' %3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='0' y2='1'%3E%3Cstop offset='0' stop-color='%2380F'/%3E%3Cstop offset='1' stop-color='%23f40'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpattern id='b' width='24' height='24' patternUnits='userSpaceOnUse'%3E%3Ccircle fill='%23ffffff' cx='12' cy='12' r='12'/%3E%3C/pattern%3E%3Crect width='100%25' height='100%25' fill='url(%23a)'/%3E%3Crect width='100%25' height='100%25' fill='url(%23b)' fill-opacity='0.1'/%3E%3C/svg%3E");
+background-attachment: fixed;
+}
+
+
+  /* Style for larger placeholders with rounded corners */
+    textarea::placeholder {
+      font-size: 24px;
+      border-radius: 40px; /* Add rounded corners */
+    }
+
+    /* Style for larger text fields with rounded corners */
+    textarea {
+      font-size: 28px;
+      width: 800px;
+      height: 200px;
+      background-color: #e5e5e5;
+      border-radius: 20px; /* Add rounded corners */
+    }
+
+    /* Style for larger button */
+    button[type="submit"] {
+      font-size: 32px; /* Adjust the font size as needed */
+    }
+
+    /* Flexbox layout for aligning the button */
+    .login {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .login form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .login button {
+      margin-top: 20px; /* Add some spacing between the textareas and the button */
+    }
+
+    /* Add padding to push prediction_text down */
+    .login .prediction-text {
+      padding-top: 3em;
+      font-size: 36px; /* Adjust the font size as needed */
+      font-family: "Comic Sans MS", cursive; /* Set the font family to Comic Sans MS */
+    }
+
+    /* Beautiful background color */
+    body {
+      background-color: #f7f0e7; /* Replace with your desired color */
+      margin: 0; /* Reset default body margin */
+      padding: 0; /* Reset default body padding */
+    }
+  </style>
+
+</head>
+
+<body>
+  <div class="login">
+    <h1>Prédiction des tags</h1>
+    <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post">
+      <textarea name="title" placeholder="Title" required="required"></textarea>
+      <br />
+      <textarea name="body" placeholder="Body" required="required"></textarea>
+      <br />
+      <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+    <div class="prediction-text">
+      <br>
+      <br>
+      {{ prediction_text }}
+    </div>
+  </div>
+</body>
+</html>
